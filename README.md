@@ -37,6 +37,13 @@ SECURITY_GROUPS="TestSecurityGroup"
     docker run --rm -e AWS_ENVIRONMENT_FILE=/foo/aws.env -v /tmp:/foo -t cmattoon/aws-env:latest
 
 
+### Use Case: Add Environment File on Startup with Systemd
+
+  * `sudo cp aws-env.service /etc/systemd/system/aws-env.service`
+  * `sudo systemctl daemon-reload`
+  * `sudo systemctl start aws-env`
+
+
 ## Build
 
     make container

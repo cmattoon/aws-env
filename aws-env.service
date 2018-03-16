@@ -1,0 +1,14 @@
+[Unit]
+Description=Sets AWS Environment
+Documentation=https://github.com/cmattoon/aws-env
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStartPre=/usr/bin/docker pull cmattoon/aws-env:latest
+ExecStart=/usr/bin/docker run --rm \
+    -e AWS_ENVIRONMENT_FILE=/etc/aws.env \
+    -v /etc:/etc \
+    -t cmattoon/aws-env:latest
