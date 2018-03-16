@@ -90,7 +90,7 @@ func main() {
 	for _, p := range all_params {
 		v := as_env_var(p, get_meta(p))
 		values = append(values, v)
-		fmt.Println(v)
+		fmt.Println(fmt.Sprintf("export %s", v))
 	}
 	
 	if f := getEnv("AWS_ENVIRONMENT_FILE", ""); f != "" {
