@@ -48,7 +48,7 @@ func get_meta(param string) (string) {
 
 // foo-bar --> FOO_BAR
 func as_env_var(key string, val string) (string) {
-	KEY := strings.Replace(strings.ToUpper(key), "-", "_", -1)
+	KEY := path.Base(strings.Replace(strings.ToUpper(key), "-", "_", -1))
 	return fmt.Sprintf("%s=\"%s\"", KEY, val)
 }
 
